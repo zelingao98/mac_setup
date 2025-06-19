@@ -37,3 +37,6 @@ source uv_tutor/bin/activate
 uv pip install torch torchvision
 python -c "import torch; print(torch.__version__)"
 ```
+For env () disappear in vscode issue, pls ref to https://stackoverflow.com/questions/78961614/vscode-ps1-missing-parenthesis-around-venv
+
+all u need is to set: "python.experiments.optOutFrom": ["pythonTerminalEnvVarActivation"]
