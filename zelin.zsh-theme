@@ -7,13 +7,8 @@ function my_git_prompt_info() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$GIT_STATUS$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
-# info
-## n: name m:mac
-# %{$fg_bold[green]%}%n%{$reset_color%}
-# arrow
-# %{$fg_bold[green]%}➜%{$reset_color%}
 NAME="friday"
-PROMPT="%{$fg_bold[green]%}$NAME%{$reset_color%} %{$fg_bold[green]%}%B➜$b%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%} $(my_git_prompt_info)%B»%b "
+PROMPT='%{$fg_bold[green]%}$NAME%{$reset_color%} %{$fg_bold[green]%}➜%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%} $(my_git_prompt_info)%{$reset_color%}%B»%b '
 RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[yellow]%}("
