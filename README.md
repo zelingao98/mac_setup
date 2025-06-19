@@ -1,6 +1,14 @@
 # Mac_Setup
 Setup Guidance for New Macbook
 
+## Setup .zshrc
+replace ``.zshrc``
+
+## Setup homebrew
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 ## Setup maple-mono font
 download link: https://github.com/subframe7536/maple-font/releases
 
@@ -10,7 +18,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
-copy my own theme 'zelin.zsh-theme' into folder '/Users/jamesgzl/.oh-my-zsh/themes/'
+copy my own theme ``zelin.zsh-theme`` into folder ``/Users/jamesgzl/.oh-my-zsh/themes/``
 
 ## Setup oh-my-tmux
 ```bash
