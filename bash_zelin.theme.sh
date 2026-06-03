@@ -3,6 +3,7 @@
 FRIDAY_GREEN='\[\e[1;32m\]'
 FRIDAY_BLUE='\[\e[1;34m\]'
 FRIDAY_YELLOW='\[\e[1;33m\]'
+FRIDAY_ORANGE='\[\e[1;38;5;208m\]'
 FRIDAY_RED='\[\e[1;31m\]'
 FRIDAY_BOLD='\[\e[1m\]'
 FRIDAY_RESET='\[\e[0m\]'
@@ -50,7 +51,7 @@ function _friday_git_prompt_info() {
   status=$(_friday_git_status)
   [[ -n $status ]] && status=" $status"
 
-  printf '%s(%s%s)%s ' "$FRIDAY_YELLOW" "$ref" "$status" "$FRIDAY_RESET"
+  printf '%s(%s%s)%s ' "$FRIDAY_ORANGE" "$ref" "$status" "$FRIDAY_RESET"
 }
 
 function _omb_theme_PROMPT_COMMAND() {
@@ -70,7 +71,12 @@ function _omb_theme_PROMPT_COMMAND() {
 
   history -a
 
-  PS1="${python_venv}${FRIDAY_GREEN}╭─${FRIDAY_RESET} ${FRIDAY_GREEN}\u@${short_host}${FRIDAY_RESET} ${FRIDAY_BLUE}$(_friday_path)${FRIDAY_RESET} $(_friday_git_prompt_info)${return_code}\n${FRIDAY_GREEN}╰─➜${FRIDAY_RESET} ${FRIDAY_BOLD}\$${FRIDAY_RESET} "
+  local env_info=''
+  if [[ -n "$python_venv" ]]; then
+    env_info=" ${FRIDAY_YELLOW}${python_venv% }${FRIDAY_RESET}"
+  fi
+
+  PS1="${FRIDAY_GREEN}╭─${FRIDAY_RESET} ${FRIDAY_GREEN}\u@${short_host}${FRIDAY_RESET} ${FRIDAY_BLUE}$(_friday_path)${FRIDAY_RESET} $(_friday_git_prompt_info)${return_code}\n${FRIDAY_GREEN}╰─>${FRIDAY_RESET}${env_info} ${FRIDAY_BOLD}\$${FRIDAY_RESET} "
 }
 
 _omb_util_add_prompt_command _omb_theme_PROMPT_COMMAND
